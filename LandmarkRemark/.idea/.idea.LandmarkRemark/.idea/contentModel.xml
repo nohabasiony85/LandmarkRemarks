@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.11.0/build/netcoreapp1.0/nunit.engine.netstandard.dll" t="Include" />
-    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.11.0/build/netcoreapp1.0/NUnit3.TestAdapter.dll" t="Include" />
-    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.11.0/build/netcoreapp1.0/NUnit3.TestAdapter.pdb" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.reporters.netcoreapp10.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.utility.netcoreapp10.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.0/build/netcoreapp1.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
     <e p="$USER_HOME$/Library/Caches/Rider2019.2/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/Library/Caches/Rider2019.2/resharper-host/local/Transient/ReSharperHost/v192/SolutionCaches/_LandmarkRemark.880414720.00" t="ExcludeRecursive" />
     <e p="$APPLICATION_CONFIG_DIR$/consoles/db" t="IncludeRecursive" />
@@ -67,6 +67,13 @@
               <e p="LandmarkRemark.Test.Program.cs" t="Include" />
             </e>
           </e>
+        </e>
+        <e p="Repository" t="Include">
+          <e p="LandmarkRemarkContextTests.cs" t="Include" />
+          <e p="RepositoryTests.cs" t="Include" />
+        </e>
+        <e p="Services" t="Include">
+          <e p="UserServicesTests.cs" t="Include" />
         </e>
         <e p="UnitTest1.cs" t="Include" />
       </e>

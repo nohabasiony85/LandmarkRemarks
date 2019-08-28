@@ -42,7 +42,7 @@ namespace LandmarkRemark.API.Controllers
         {
             try
             {
-                var currentUser = await this.userLocationServices.GetUserLocation(string.Empty);
+                var currentUser = await userLocationServices.GetUserLocation(string.Empty);
                 return Ok(new {location = currentUser});
             }
             catch (Exception ex)
