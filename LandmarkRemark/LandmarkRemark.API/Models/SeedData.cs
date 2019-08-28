@@ -14,6 +14,7 @@ namespace LandmarkRemark.API.Models
                 serviceProvider.GetRequiredService<
                     DbContextOptions<LandmarkRemarkDataContext>>()))
             {
+                // TODO: Should we remove this irrelevant comments
                 // Look for any movies.
                 if (context.Users.Any())
                 {

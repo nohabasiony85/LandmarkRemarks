@@ -4,6 +4,8 @@ namespace LandmarkRemark.API.Repository
 {
     public class UserRepository : IUserRepository
     {
+        // TODO: Please make sure to remove any commented code.
+        
 //        public UserRepository()
 //        {
 //            Init();
