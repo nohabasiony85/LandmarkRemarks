@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LandmarkRemark.API.Controllers
 {
+    // TODO: Make sure to delete un used code.
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase

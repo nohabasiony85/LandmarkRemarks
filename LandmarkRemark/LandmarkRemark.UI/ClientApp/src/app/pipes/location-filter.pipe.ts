@@ -1,6 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { UserLocation } from "../shared/user-location";
 
+//TODO: Comment this filter is repeated multiple times.
 @Pipe({
   name: 'locationFilter'
 })

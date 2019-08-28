@@ -32,6 +32,8 @@ export class LandmarkService {
       });
   }
 
+  // TODO: Comment - Why this function needs to be static?
+  // TODO: Comment - Why we rethrowing the error again?
   private static handleError(error:Response){
     console.log(error);
     let msg = `Error with ${error.status} and url ${error.url}`;

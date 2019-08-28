@@ -33,6 +33,7 @@ export class MapAddComponent implements OnInit {
   onSubmit() {
     const formModel = this.locationForm.value;
 
+    // TODO: Can we rename locationToSave => newLocation ?
     this.locationToSave = new UserLocation();
 
     this.locationToSave.latitude = this.myLocation.latitude;
