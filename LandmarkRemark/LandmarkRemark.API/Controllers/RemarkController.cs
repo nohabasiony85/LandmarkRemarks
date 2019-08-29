@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using LandmarkRemark.API.Models;
 using LandmarkRemark.API.Repository;
 using LandmarkRemark.API.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -12,9 +13,9 @@ namespace LandmarkRemark.API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private IUserServices userServices;
+        private IUserServices _userServices;
 
-        private IUserLocationServices userLocationServices;
+        private IRemarkServices _remarkServices;
 
         // TODO: loggers usually setup in the startup, and inject the instance of the logger.
         // Instead of creating static references in this way.
@@ -25,18 +26,23 @@ namespace LandmarkRemark.API.Controllers
         private static readonly log4net.ILog Logger = log4net.LogManager.GetLogger
             (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        public UserController(IUserServices injectedUserService, IUserLocationServices injectedMongoUserService)
+        public UserController(UserService injectedUserService, RemarkServices injectedUserLocationService)
         {
-            userServices = injectedUserService;
-            userLocationServices = injectedMongoUserService;
+            _userServices = injectedUserService;
+            _remarkServices = injectedUserLocationService;
         }
 
-        // TODO: HttpVerb for this action this should be POST
-        public async Task<ActionResult> AddUserLocation([FromBody] UserLocationModel user)
+        /// <summary>
+        /// Controller to add user location
+        /// </summary>
+        /// <param name="user">user location details</param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<ActionResult> AddUserLocation([FromBody] RemarkModel user)
         {
             try
             {
-                var createdUser = userLocationServices.AddUserLocation(user);
+                var createdUser = _remarkServices.AddUserLocation(user);
                 return Ok(new {userLocation = createdUser});
             }
             catch (Exception ex)
@@ -45,14 +51,17 @@ namespace LandmarkRemark.API.Controllers
                 return await Task.FromResult(BadRequest("Unable to process your request."));
             }
         }
-
+        
+        /// <summary>
+        /// Controller to retrieve user's locations
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
-        public async Task<ActionResult> GetUserLocations()
+        public async Task<ActionResult> GetUserLocations(int userId)
         {
             try
             {
-                // TODO: How we are expecting to read username?
-                var currentUser = await userLocationServices.GetUserLocation(string.Empty);
+                var currentUser = await _remarkServices.GetUserLocation(userId);
                 return Ok(new {location = currentUser});
             }
             catch (Exception ex)

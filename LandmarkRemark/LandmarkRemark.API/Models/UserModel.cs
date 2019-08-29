@@ -9,14 +9,19 @@ namespace LandmarkRemark.API.Repository
         {
             UserLocation = new List<UserLocationModel>();
         }
-
+        
+        /// <summary>
+        /// Gets or sets the user Id
+        /// </summary>
         [Key]
         public int Id { get; set; }
         //TODO: What about using username as an Id, and remove Id?
+        
+        /// <summary>
+        /// Gets or sets the user name
+        /// </summary>
         public string UserName { get; set; }
 
-        // TODO: I think there is a cricular depedency between UserLocationModel -> UserModel 
-        // becuase UserLocationModel has a reference to UserLocation, UserLocation has a reference to UserLocationModel
         public virtual IEnumerable<UserLocationModel> UserLocation { get; set; }
     }
 }

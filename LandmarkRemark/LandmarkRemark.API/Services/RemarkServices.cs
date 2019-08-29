@@ -1,24 +1,25 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using LandmarkRemark.API.Models;
 using LandmarkRemark.API.Repository;
 
 namespace LandmarkRemark.API.Services
 {
-    public class UserLocationServices : IUserLocationServices
+    public class UserLocationServices : IRemarkServices
     {
-        private readonly IUserLocationRepository _userLocationRepository;
-        public UserLocationServices(IUserLocationRepository injectedMongoRepo)
+        private readonly IRemarkRepository _userLocationRepository;
+        public UserLocationServices(IRemarkRepository injectedMongoRepo)
         {
             _userLocationRepository = injectedMongoRepo;
         }
         
-        public Task<UserLocationModel> AddUserLocation(UserLocationModel userLocation)
+        public Task<RemarkModel> AddUserLocation(RemarkModel userLocation)
         {
             
             return  _userLocationRepository.AddUserLocation(userLocation);
         }
 
-        public Task<List<UserLocationModel>> GetUserLocation(string username)
+        public Task<List<RemarkModel>> GetUserLocation(int userId)
         {
             throw new System.NotImplementedException();
         }
