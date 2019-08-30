@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using LandmarkRemark.API.Models;
 using LandmarkRemark.API.Repository;
 
 namespace LandmarkRemark.API.Services
 {
     public interface IUserServices
     {
-        Task<UserModel> AddUser(UserModel user);
+        void AddUser(UserModel user);
         Task<UserModel> GetUser(string username);
-        Task<List<UserLocationModel>> GetAllUserLocations(int userId);
+        Task<List<RemarkModel>> GetAllUserRemarks(int userId);
     }
 }

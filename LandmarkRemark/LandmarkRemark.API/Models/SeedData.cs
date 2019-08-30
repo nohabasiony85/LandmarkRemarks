@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace LandmarkRemark.API.Models
 {
-    public class SeedData
+    public static class SeedData
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
@@ -14,8 +14,6 @@ namespace LandmarkRemark.API.Models
                 serviceProvider.GetRequiredService<
                     DbContextOptions<LandmarkRemarkDataContext>>()))
             {
-                // TODO: Should we remove this irrelevant comments
-                // Look for any movies.
                 if (context.Users.Any())
                 {
                     return; // DB has been seeded
@@ -24,15 +22,18 @@ namespace LandmarkRemark.API.Models
                 context.Users.AddRange(
                     new UserModel
                     {
-                        UserName = "Noha"
+                        Id = 1,
+                        Name = "Noha"
                     },
                     new UserModel
                     {
-                        UserName = "Adam"
+                        Id = 2,
+                        Name = "Adam"
                     },
                     new UserModel
                     {
-                        UserName = "Basiony"
+                        Id = 3,
+                        Name = "Basiony"
                     }
                 );
 

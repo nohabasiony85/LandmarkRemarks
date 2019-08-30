@@ -2,8 +2,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LandmarkRemark.API", "LandmarkRemark.API\LandmarkRemark.API.csproj", "{3A2EDBE8-A6E9-4E7A-932A-F1EF6102B682}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LandmarkRemark.UI", "LandmarkRemark.UI\LandmarkRemark.UI.csproj", "{E67FA956-4DCB-4770-952F-335407F270E5}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LandmarkRemark.Test", "LandmarkRemark.Test\LandmarkRemark.Test.csproj", "{12EE6A58-DA1F-4EC1-AA04-077DDEC5CFC3}"
 EndProject
 Global
@@ -16,10 +14,6 @@ Global
 		{3A2EDBE8-A6E9-4E7A-932A-F1EF6102B682}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A2EDBE8-A6E9-4E7A-932A-F1EF6102B682}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A2EDBE8-A6E9-4E7A-932A-F1EF6102B682}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E67FA956-4DCB-4770-952F-335407F270E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E67FA956-4DCB-4770-952F-335407F270E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E67FA956-4DCB-4770-952F-335407F270E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E67FA956-4DCB-4770-952F-335407F270E5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{12EE6A58-DA1F-4EC1-AA04-077DDEC5CFC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{12EE6A58-DA1F-4EC1-AA04-077DDEC5CFC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12EE6A58-DA1F-4EC1-AA04-077DDEC5CFC3}.Release|Any CPU.ActiveCfg = Release|Any CPU

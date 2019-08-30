@@ -5,23 +5,28 @@ using LandmarkRemark.API.Repository;
 
 namespace LandmarkRemark.API.Services
 {
-    public class UserLocationServices : IRemarkServices
+    public class RemarkServices : IRemarkServices
     {
-        private readonly IRemarkRepository _userLocationRepository;
-        public UserLocationServices(IRemarkRepository injectedMongoRepo)
+        private readonly IRemarkRepository _remarkRepository;
+        public RemarkServices(IRemarkRepository injectedRemarkRepo)
         {
-            _userLocationRepository = injectedMongoRepo;
+            _remarkRepository = injectedRemarkRepo;
         }
         
-        public Task<RemarkModel> AddUserLocation(RemarkModel userLocation)
+        public void AddRemarkNote(RemarkModel remark)
         {
-            
-            return  _userLocationRepository.AddUserLocation(userLocation);
+            _remarkRepository.AddRemark(remark);
         }
 
-        public Task<List<RemarkModel>> GetUserLocation(int userId)
+        public Task<List<RemarkModel>> GetRemarksByUserId(int userId)
         {
             throw new System.NotImplementedException();
+        }
+        
+        
+        public Task<List<RemarkModel>> GetAllRemarks()
+        {
+            return _remarkRepository.GetAllUserRemarks(0);
         }
     }
 }

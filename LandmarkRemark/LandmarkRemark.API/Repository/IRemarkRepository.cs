@@ -4,12 +4,12 @@ using LandmarkRemark.API.Models;
 
 namespace LandmarkRemark.API.Repository
 {
-    public interface IUserLocationRepository
+    public interface IRemarkRepository
     {
-        Task<List<RemarkModel>> GetAllUserLocations(int userId);
+        Task<List<RemarkModel>> GetAllUserRemarks(int userId);
 
-        Task<List<RemarkModel>> GetAllUsersLocationNotes(decimal latitude, decimal longitude);
+        Task<List<RemarkModel>> GetAllUserRemarksNotes(decimal latitude, decimal longitude);
 
-        Task<RemarkModel> AddUserLocation(RemarkModel userLocationModel);
+        void AddRemark(RemarkModel remarkModel);
     }
 }

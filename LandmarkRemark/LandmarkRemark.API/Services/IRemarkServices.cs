@@ -5,9 +5,10 @@ using LandmarkRemark.API.Repository;
 
 namespace LandmarkRemark.API.Services
 {
-    public interface IUserLocationServices
+    public interface IRemarkServices
     {
-        Task<RemarkModel> AddUserLocation(RemarkModel userLocation);
-        Task<List<RemarkModel>> GetUserLocation(int userId);
+        void AddRemarkNote(RemarkModel remark);
+        Task<List<RemarkModel>> GetRemarksByUserId(int userId);
+        Task<List<RemarkModel>> GetAllRemarks();
     }
 }

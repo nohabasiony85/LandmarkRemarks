@@ -1,7 +1,7 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LandmarkRemark.API.Models;
 using LandmarkRemark.API.Repository;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,72 +9,34 @@ namespace LandmarkRemark.API.Services
 {
     public class UserService : IUserServices
     {
+        private readonly IUserRepository _userRepository;
+        private readonly IRemarkRepository _remarkRepository;
         
-        public async Task<UserModel> AddUser(UserModel user)
+        public async void AddUser(UserModel user)
         {
-            // TODO: Why we are not using repositories.
-            
-            // TODO: Why we are creating a new UserModel, instead of using passed instance?
-            var newUser = new UserModel()
-            {
-                UserName = user.UserName
-            };
-            
-            // TODO: Can we make sure to use depedency injection.
-            // TODO: DBContext should be created once in the whole application. (Singleton).
             using (var db = new LandmarkRemarkDataContext())
             {
-                db.Users.Add(newUser);
+                db.Users.Add(user);
                 await db.SaveChangesAsync();
 
-                user.Id = newUser.Id;
+                user.Id = user.Id;
             }
-
-            return user;
         }
 
-        public async Task<UserModel> GetUser(string username)
+        public Task<UserModel> GetUser(string username)
         {
-            //TODO: Why we didn't have this query in the repositories?
-            // TODO: Can we make sure to use depedency injection.
             using (var db = new LandmarkRemarkDataContext())
             {
-                var user = db.Users.FirstOrDefault(u => u.UserName == username);
+                var user = db.Users.FirstOrDefault(u => u.Name == username);
                 if (user == null)
-                {
                     throw new KeyNotFoundException($"Unable to find user with username {username}");
-                }
-
-                // TODO: Why we need to mark this query AsNoTracking ?
-                var locations = await (from l in db.UserLocation.AsNoTracking()
-                    where l.UserId == user.Id
-                    select new UserLocationModel()
-                    {
-                        Id = l.Id,
-                        UserId = l.UserId,
-                        Latitude = l.Latitude,
-                        Longitude = l.Longitude,
-                    }).ToListAsync();
-
-                // TODO: Why we are saving changes here? What's the need for it.
-                await db.SaveChangesAsync();
-
-
-                // TODO: Why we need to map again to a  different model?
-                return new UserModel
-                {
-                    Id = user.Id,
-                    UserName = user.UserName,
-                    UserLocation = locations
-                };
+                return Task.FromResult(user);
             }
         }
 
-        public async Task<List<UserLocationModel>> GetAllUserLocations(int userId)
+        public async Task<List<RemarkModel>> GetAllUserRemarks(int userId)
         {
-            // TODO: Can we make sure to use depedency injection.
-            var userLocationRepository = new UserLocationRepository();
-            return await userLocationRepository.GetAllUserLocations(userId);
+            return await _remarkRepository.GetAllUserRemarks(userId);
         }
     }
 }
